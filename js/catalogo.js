@@ -1,9 +1,10 @@
 const createPetCard = (petObject) => {
-  let { name, breed, age, picture, specie, gender } = petObject;
+  let { name, breed, age, picture, specie, gender, key } = petObject;
   let cardHtml = `
     <div class="col">
-        <div class="card pet-card p-0 overflow-hidden">
-        <div class="row g-0">
+        <a href="../views/detalle.html?petKey=${key}">
+        <div class="card pet-card p-0 overflow-hidden h-100">
+        <div class="row g-0 h-100">
             <div class="col-md-4">
             <img
                 src="${picture}"
@@ -24,6 +25,7 @@ const createPetCard = (petObject) => {
             </div>
         </div>
         </div>
+        </a>
     </div>
   `;
   return cardHtml;
