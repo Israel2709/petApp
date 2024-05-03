@@ -1,3 +1,5 @@
+import { createPet } from "../js/modules/petsApi.js";
+
 let savePetBtn = document.getElementById("save-pet-btn");
 
 savePetBtn.addEventListener("click", async () => {
@@ -34,15 +36,3 @@ savePetBtn.addEventListener("click", async () => {
   let savedPet = await createPet(petObject);
   console.log(savedPet);
 });
-
-const createPet = async (petObject) => {
-  let response = await fetch(
-    "https://javascript33g-default-rtdb.firebaseio.com/pets/.json",
-    {
-      method: "POST",
-      body: JSON.stringify(petObject),
-    }
-  );
-  let data = await response.json();
-  return data;
-};

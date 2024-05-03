@@ -1,3 +1,5 @@
+import { fetchAllPets } from "./modules/petsApi.js";
+
 const createPetCard = (petObject) => {
   let { name, breed, age, picture, specie, gender, key } = petObject;
   let cardHtml = `
@@ -29,16 +31,6 @@ const createPetCard = (petObject) => {
     </div>
   `;
   return cardHtml;
-};
-
-const fetchAllPets = async () => {
-  let response = await fetch(
-    `https://javascript33g-default-rtdb.firebaseio.com/pets/.json`
-  );
-  let data = await response.json();
-  let keys = Object.keys(data);
-  let petsArray = keys.map((key) => ({ ...data[key], key }));
-  return petsArray;
 };
 
 const printPets = (petsArray, wrapperId) => {

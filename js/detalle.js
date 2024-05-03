@@ -1,3 +1,5 @@
+import { fetchPetByKey } from "./modules/petsApi.js";
+
 /*Para extraer parámetros de la url:*/
 
 /*1: Guardamos la url en una variable*/
@@ -9,14 +11,6 @@ const params = new URLSearchParams(new URL(url).search);
 /*3: Extraemos el parámetro que deseamos*/
 let petKey = params.get("petKey");
 console.log(petKey);
-
-const fetchPetByKey = async (petKey) => {
-  let response = await fetch(
-    `https://javascript33g-default-rtdb.firebaseio.com/pets/${petKey}/.json`
-  );
-  let data = await response.json();
-  return data;
-};
 
 const printPetData = async (petKey) => {
   let petData = await fetchPetByKey(petKey);
