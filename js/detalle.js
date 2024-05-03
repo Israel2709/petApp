@@ -40,8 +40,12 @@ const printPetData = async (petKey) => {
   document.getElementById("pet-breed").innerText = breed;
   document.getElementById("pet-gender").innerText = gender;
   document.getElementById("pet-age").innerText = age;
-  document.getElementById("pet-sterilized").innerText = sterilized;
-  document.getElementById("pet-is-vaccinate").innerText = hasVaccines;
+  document.getElementById("pet-sterilized").innerText = sterilized
+    ? "Sí"
+    : "No";
+  document.getElementById("pet-is-vaccinate").innerText = hasVaccines
+    ? "Sí"
+    : "No";
 };
 
 printPetData(petKey);
